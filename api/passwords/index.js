@@ -32,7 +32,7 @@ const userSchema = new mongoose.Schema({
 });
 
 // Create User model
-const User = mongoose.model("User", userSchema);
+const User = mongoose.models.User || mongoose.model("User", userSchema);
 
 // Authentication middleware
 const auth = async (req) => {
@@ -55,14 +55,27 @@ const auth = async (req) => {
 };
 
 module.exports = async (req, res) => {
-  // CORS headers
-  res.setHeader("Access-Control-Allow-Origin", "*");
+  // CORS headers - MUST allow GitHub Pages
+  const allowedOrigins = [
+    "https://pmhunts.github.io",
+    "http://localhost:8000",
+    "http://localhost:3000",
+    "http://127.0.0.1:8000",
+    "http://127.0.0.1:5500", // VS Code Live Server
+  ];
+
+  const origin = req.headers.origin;
+  if (allowedOrigins.includes(origin)) {
+    res.setHeader("Access-Control-Allow-Origin", origin);
+  }
+
   res.setHeader(
     "Access-Control-Allow-Methods",
-    "GET, POST, PUT, DELETE, OPTIONS"
+    "GET, POST, PUT, PATCH, DELETE, OPTIONS"
   );
   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
   res.setHeader("Access-Control-Allow-Credentials", "true");
+  res.setHeader("Access-Control-Max-Age", "86400");
 
   if (req.method === "OPTIONS") {
     return res.status(200).end();

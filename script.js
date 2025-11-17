@@ -24,8 +24,18 @@ const passwordField = document.getElementById('passwordField');
 const strengthText = document.getElementById('strengthText');
 const strengthIndicator = document.getElementById('strengthIndicator');
 
-// API Base URL - change this to your server URL in production
-const API_BASE_URL = 'https://passwordmanager-9rsw.onrender.com';
+// API Base URL - Updated for Vercel deployment
+// IMPORTANT: Replace with YOUR actual Vercel URL
+const API_BASE_URL = 'https://password-manager-hazel-eight.vercel.app';
+
+// Alternative: Uncomment this if you want different URLs for different environments
+/*
+const API_BASE_URL = window.location.hostname === 'pmhunts.github.io' 
+    ? 'https://password-manager-hazel-eight.vercel.app'  // Production: Your Vercel URL
+    : window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+    ? 'http://localhost:5000'  // Local development with local server
+    : 'https://password-manager-hazel-eight.vercel.app';  // Default to Vercel
+*/
 
 // State variables
 let isLogin = true;
@@ -90,7 +100,7 @@ async function handleFormSubmit(e) {
             console.log("Attempting login for:", username);
             
             try {
-const response = await fetch(`${API_BASE_URL}/api/users/login`, {
+                const response = await fetch(`${API_BASE_URL}/api/users/login`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -106,6 +116,7 @@ const response = await fetch(`${API_BASE_URL}/api/users/login`, {
                 const data = await response.json();
                 loginUser(data.user, data.token);
             } catch (error) {
+                console.error("Login error:", error);
                 alert(error.message || 'Login failed. Please try again.');
             }
         } else {
@@ -117,7 +128,7 @@ const response = await fetch(`${API_BASE_URL}/api/users/login`, {
             }
 
             try {
-const response = await fetch(`${API_BASE_URL}/api/users/register`, {
+                const response = await fetch(`${API_BASE_URL}/api/users/register`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -133,6 +144,7 @@ const response = await fetch(`${API_BASE_URL}/api/users/register`, {
                 alert('Registration successful! You can now log in.');
                 authToggleLink.click(); // Switch to login view
             } catch (error) {
+                console.error("Registration error:", error);
                 alert(error.message || 'Registration failed. Please try again.');
             }
         }
