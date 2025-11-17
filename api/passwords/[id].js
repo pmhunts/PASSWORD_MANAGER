@@ -62,6 +62,7 @@ module.exports = async (req, res) => {
     "http://localhost:3000",
     "http://127.0.0.1:8000",
     "http://127.0.0.1:5500", // VS Code Live Server
+    "https://password-manager-9bh4og3ub-hunts-projects-e9394626.vercel.app",
   ];
 
   const origin = req.headers.origin;
