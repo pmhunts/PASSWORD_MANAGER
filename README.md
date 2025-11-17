@@ -25,9 +25,9 @@ A full-stack password management application built with Node.js, Express, and Mo
 ### Prerequisites
 
 - Node.js (v18+)
-- MongoDB
+- MongoDB Atlas account (for online database)
 
-### Setup
+### Local Development Setup
 
 1. Clone the repository:
 
@@ -45,7 +45,7 @@ A full-stack password management application built with Node.js, Express, and Mo
 3. Create a `.env` file in the root directory:
 
    ```
-   MONGODB_URI=mongodb://localhost:27017/securevault
+   MONGODB_URI=mongodb+srv://<PASSWORD_MANAGER>:<Pm@12345>@cluster0.7djwocg.mongodb.net/?appName=Cluster0
    JWT_SECRET=your_secret_key
    PORT=5000
    ```
@@ -56,6 +56,19 @@ A full-stack password management application built with Node.js, Express, and Mo
    - Development: `npm run dev`
 
 5. Open `index.html` in your browser to access the application.
+
+### Vercel Deployment
+
+1. Push your code to GitHub.
+
+2. Connect your GitHub repo to Vercel.
+
+3. Set environment variables in Vercel dashboard:
+
+   - `MONGODB_URI`: `mongodb+srv://<PASSWORD_MANAGER>:<Pm@12345>@cluster0.7djwocg.mongodb.net/?appName=Cluster0`
+   - `JWT_SECRET`: Your secret key
+
+4. Deploy! The app will be available online and accessible from any device.
 
 ## API Endpoints
 
