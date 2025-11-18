@@ -13,7 +13,15 @@ const app = express();
 // CORS Configuration - MUST be before other middleware
 app.use(
   cors({
-    origin: ["https://pmhunts.github.io", "http://localhost:3000"],
+    origin: [
+      "https://pmhunts.github.io",
+      "http://localhost:8000",
+      "http://localhost:3000",
+      "http://127.0.0.1:8000",
+      "http://127.0.0.1:5500",
+      "https://password-manager-9bh4og3ub-hunts-projects-e9394626.vercel.app",
+      "https://password-manager-rouge.vercel.app",
+    ],
     methods: ["GET", "POST", "PATCH", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
