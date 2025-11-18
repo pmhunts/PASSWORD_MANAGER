@@ -1,28 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SecureVault Password Manager</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
+    <!--
     <div class="video-container">
         <video autoplay muted loop id="background-video">
             <source src="video.mp4" type="video/mp4">
             <!-- Fallback background if video doesn't load -->
-            <div class="placeholder-video" style="background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);"></div>
-        </video>
-        <div class="overlay"></div>
+    <div class="placeholder-video" style="background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);"></div>
+    </video>
+    <div class="overlay"></div>
     </div>
-    
+    -->
+
     <!--
     <header>
         <h1>SecureVault</h1>
         <p>Your Personal Password Manager</p>
     </header>
     -->
-    
+
     <div class="container">
         <!-- Login/Register Form -->
         <div class="auth-container" id="authContainer">
@@ -47,25 +51,25 @@
                 </div>
             </form>
         </div>
-        
+
         <!-- Password Manager -->
         <div class="password-manager" id="passwordManager" style="display: none;">
             <div class="user-info">
                 <p>Welcome, <span id="currentUser">User</span>!</p>
                 <button class="logout-btn" id="logoutBtn">Logout</button>
             </div>
-            
+
             <h2>Your Stored Passwords</h2>
-            
+
             <div class="action-buttons">
                 <button id="addNewBtn">Add New Password</button>
                 <button id="exportBtn">Export Data</button>
             </div>
-            
+
             <div class="search-bar">
                 <input type="text" id="searchInput" placeholder="Search passwords...">
             </div>
-            
+
             <div id="passwordList" style="display: none;">
                 <table class="password-list">
                     <thead>
@@ -82,7 +86,7 @@
                     </tbody>
                 </table>
             </div>
-            
+
             <div id="emptyState" class="empty-state">
                 <i>🔒</i>
                 <h3>No passwords stored yet</h3>
@@ -90,7 +94,7 @@
             </div>
         </div>
     </div>
-    
+
     <!-- Add/Edit Password Modal -->
     <div class="modal" id="passwordModal" style="display: none;">
         <div class="modal-content">
@@ -133,7 +137,7 @@
             </form>
         </div>
     </div>
-    
+
     <!--
     <footer>
         <p>&copy; 2025 SecureVault Password Manager</p>
@@ -142,4 +146,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>

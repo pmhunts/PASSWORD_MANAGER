@@ -25,8 +25,8 @@ const strengthText = document.getElementById('strengthText');
 const strengthIndicator = document.getElementById('strengthIndicator');
 
 // API Base URL - Updated for Vercel deployment
-// IMPORTANT: Replace with YOUR actual Vercel URL
-const API_BASE_URL = 'https://password-manager-hazel-eight.vercel.app';
+// Your actual Vercel URL
+const API_BASE_URL = 'https://password-manager-rouge.vercel.app';
 
 // Alternative: Uncomment this if you want different URLs for different environments
 /*
